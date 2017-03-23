@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <script type='text/javascript' src='x3dom.js'> </script> 
+
+    <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'> </script> 
+    <link rel='stylesheet' type='text/css' href='x3dom.css'></link> 
+
+
+    <title>X3D Editor</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body>
+
+              <div class="textareaMCE">
+                <textarea id="tinytextarea"></textarea>
+              </div>
+              <div class="x3dSpace">
+                <x3d id="x3dElement"> 
+                   <scene> 
+                   </scene> 
+                </x3d> 
+              </div>
+
+              <input type="file" id="filePicker" style="display:none">
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Text Editor imports -->
+    <script src="js/tinymce.min.js"></script>
+    <script src="js/plugins/vrml/plugin.js"></script>
+    <script src="js/plugins/customSave/plugin.js"></script>
+    <script>
+    tinymce.init({ 
+      selector:'#tinytextarea',
+      plugins: 'customSave vrml',
+      toolbar: 'saver loader go shape cone sphere box cylinder Appearance Material',
+      menu: {
+        file: {title: 'File', items: 'newdocument | print'},
+        edit: {title: 'Edit', items: 'undo redo | cut copy paste pastetext | selectall'},
+        insert: {title: 'Insert', items: 'link media | template hr'},
+        view: false,
+        format: false,
+        table: {title: 'Table', items: 'inserttable tableprops deletetable | cell row column'},
+        tools: false
+      },
+      force_br_newlines: true,
+      force_p_newlines: true,
+      remove_linebreaks : false, 
+      setup: function(ed){
+        console.log(ed);
+
+        /*onExecCommand.add(function(ed, cmd, ui, val) {
+            if(cmd == "mceNewDocument") {
+                console.log('hey');
+            }
+        })*/
+      },
+      forced_root_block: ''
+    });
+
+    function myCustomExecCommandHandler(editor_id, elm, command, user_interface, value) {
+      console.log('callback');
+      var linkElm, imageElm, inst;
+      switch (command) {
+              case "mceNewDocument":
+                console.log('hehh');
+                return true;
+      }
+      return false; // Pass to next handler in chain
+    }
+
+    /*
+    setup: function(ed){
+        ed.editorCommands.
+
+        /*onExecCommand.add(function(ed, cmd, ui, val) {
+            if(cmd == "mceNewDocument") {
+                console.log('hey');
+            }
+        })
+      },
+    */
+
+    </script>
+
+    <!-- Scrolling Nav JavaScript -->
+    <script src="functions/sceneManager.js"></script>
+
+</body>
+
+</html>
