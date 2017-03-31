@@ -33,7 +33,7 @@ var allowCrossDomain = function(req, res, next) {
     /* retorna programa VRML convertido para X3D
     params: req(requisicao via POST do usuário)
     return: res - programa convertido para X3D */
-    app.post('/', function(req,res){
+    app.post('/views', function(req,res){
         getStdin(req.body['value'],res);
     });
 
