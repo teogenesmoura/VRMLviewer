@@ -21,7 +21,7 @@ function changeX3D(content) {
 
 function sendAjaxData(content) {
 	var submit = $.ajax({
-        url: 'http://localhost:5000/', 
+        url: 'http://vrmlviewer.herokuapp.com/views/', 
         type: 'POST', 
         data: content,
         error: function(error) {
