@@ -1,0 +1,22 @@
+#VRML V2.0 utf8
+Shape {
+ geometry IndexedFaceSet {
+ coord Coordinate {
+
+ point [ 1 0 -1, -1 0 -1, -1 0 1, 1 0 1, 0 2 0 ]
+
+ }
+
+ coordIndex [ 0 4 3 -1 # face A, right
+
+ 1 4 0 -1 # face B, back
+
+ 2 4 1 -1 # face C, left
+
+ 3 4 2 -1 # face D, front
+
+ 0 3 2 1 ] # face E, bottom
+
+}
+
+}

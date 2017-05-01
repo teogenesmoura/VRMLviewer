@@ -1,0 +1,11 @@
+Shape { 
+ appearance Appearance { 
+ material Material { 
+ diffuseColor 0 0.5 0 
+ emissiveColor 0 0.8 0 
+ transparency 0.5 
+ } 
+ } 
+ geometry Box { 
+ } 
+} 
