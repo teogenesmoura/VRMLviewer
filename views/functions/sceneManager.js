@@ -16,7 +16,7 @@ function changeX3D(content) {
 	$("scene").empty();
 	$("scene").append(String(content));
   }
-/* ENDERECO DE POST PARA PRODUCAO: https://lvisunb.herokuapp.com */
+/* ENDERECO DE POST PARA PRODUCAO: https://vrmlviewer.herokuapp.com/ */
 /* ENDERECO DE POST PARA DEBUG: url: 'http://localhost:5000/', */
 
 function sendAjaxData(content) {
