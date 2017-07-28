@@ -1,39 +1,70 @@
-# node-js-getting-started
+# VRML Viewer
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+A Web app that allows users to visualize 3D objects written in the VRML Language. Simply type VRML code on the left, click on "Go!" and see the result on the right side of the screen. App used on the Introduction to Virtual Reality class at the Universidade de Brasília, Brazil. 
+https://vrmlviewer.herokuapp.com/views/
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+## Motivation
+Rendering 3D objects is fundamental for learning Virtual Reality nowadays. The current industry-standard language, X3D, is appropriate for building 3D graphics, but when it comes to learning VRML is easier for students without a CS background, which is the case in the Introduction to Virtual Reality class. The softwares that are able to render VRML are dated though, and the one Prof.Dr.Pratini used for the class stopped working with the introduction of Windows 10. Alongside @gbayomi, I built this web app that translates VRML to X3D and renders it into a viewer so that students are able to see what they're creating without worrying about what is happening in the background.
 
-## Running Locally
-
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
-
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
+## Demo
+Open up https://vrmlviewer.herokuapp.com/views/ and paste the following code into the text editor:
 ```
+#VRML V2.0 utf8
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+#Example VRML 2.0 file for teaching basic concepts of
+#color and 3D primitive shapes. 
+#Created by Theresa-Marie Rhyne
 
-## Deploying to Heroku
-
+ 	# A Cylinder
+     Shape {
+         appearance Appearance {
+             material Material {
+		diffuseColor 0.75 0.5 1.0
+                specularColor 0.7 0.7 0.8
+                shininess 0.1
+             }
+         }
+         geometry Cylinder {
+             height 0.2
+             radius 3.
+         }
+     }
+	# A Sphere
+    Shape {
+         appearance Appearance {
+             material Material { 
+             diffuseColor 0.2 0.5 0.75
+             transparency 0.0
+	     }
+         }
+    geometry Sphere {
+        radius 1.0
+    }
+}
 ```
-$ heroku create
-$ git push heroku master
-$ heroku open
+and click the "Go!" button. You should see a planet-like 3D form on the viewer :)
+Credits for the VRML example:
+https://www.siggraph.org/special-projects/com97/vrmlexample1.html
+
+## Getting started
+First, install NPM (instructions at https://www.npmjs.com/get-npm). Then type the following into your terminal in a folder you feel comfortable with:
 ```
-or
+git clone https://github.com/teogenesmoura/VRMLviewer.git
+cd vrmlviewer && npm install 
+node app.js
+```
+The app should now be running on ```http://localhost:5000/views```
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+## Tech stack
+The app was built using Node JS, Express JS and Ajax.
 
-## Documentation
+## Contributing
+We could use help with the design of the app that looks a bit grumpy right now. PRs are welcome.
 
-For more information about using Node.js on Heroku, see these Dev Center articles:
+## License
+MIT
 
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+
+
+
+
