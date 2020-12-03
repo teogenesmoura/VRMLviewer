@@ -12,10 +12,10 @@
 
     <link href="css/style.css" rel="stylesheet">
 
-    <script type='text/javascript' src='x3dom.js'> </script> 
+    <script type='text/javascript' src='x3dom.js'> </script>
 
-    <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'> </script> 
-    <link rel='stylesheet' type='text/css' href='x3dom.css'></link> 
+    <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'> </script>
+    <link rel='stylesheet' type='text/css' href='x3dom.css'></link>
 
 
     <title>X3D Editor</title>
@@ -42,10 +42,10 @@
                 <textarea id="tinytextarea"></textarea>
               </div>
               <div class="x3dSpace">
-                <x3d id="x3dElement"> 
-                   <scene> 
-                   </scene> 
-                </x3d> 
+                <x3d id="x3dElement">
+                   <scene>
+                   </scene>
+                </x3d>
               </div>
 
               <input type="file" id="filePicker" style="display:none">
@@ -62,7 +62,40 @@
     <script src="js/plugins/vrml/plugin.js"></script>
     <script src="js/plugins/customSave/plugin.js"></script>
     <script>
-    tinymce.init({ 
+    function mountInstructions() {
+      let instructions = '#VRML V2.0 utf8<br />'
+      instructions += '#Example VRML 2.0 file for teaching basic concepts of color and 3D primitive shapes. <br />'
+      instructions += '#To run the demo just click on the Go! button above.<br/>'
+      instructions += '#The shape will take a while to render due to Heroku\'s dyno policies.<br/>'
+      instructions += '#Sample 3D shape code by Theresa-Marie Rhyne <br />'
+      instructions += '# A Cylinder <br/>'
+      instructions += 'Shape { <br/>'
+      instructions += '&nbsp; appearance Appearance { <br/>'
+      instructions += '&nbsp;&nbsp; material Material { <br/>'
+      instructions += '&nbsp;&nbsp;&nbsp; diffuseColor 0.75 0.5 1.0 <br/>'
+      instructions += '&nbsp;&nbsp;&nbsp; specularColor 0.7 0.7 0.8 <br/>'
+      instructions += '&nbsp;&nbsp;&nbsp; shininess 0.1 <br/>'
+      instructions += '&nbsp;&nbsp; } <br/>'
+      instructions += '&nbsp; } <br/>'
+      instructions += '&nbsp; geometry Cylinder { <br/>'
+      instructions += '&nbsp;&nbsp; height 0.2 <br/>'
+      instructions += '&nbsp;&nbsp; radius 3. <br/>'
+      instructions += '&nbsp; } <br/>'
+      instructions += '} <br/>'
+      instructions += 'Shape { <br/>'
+      instructions += '&nbsp; appearance Appearance { <br/>'
+      instructions += '&nbsp;&nbsp; material Material { <br/>'
+      instructions += '&nbsp;&nbsp;&nbsp; diffuseColor 0.2 0.5 0.75 <br/>'
+      instructions += '&nbsp;&nbsp;&nbsp; transparency 0.0 <br/>'
+      instructions += '&nbsp;&nbsp; } <br/>'
+      instructions += '&nbsp; } <br/>'
+      instructions += 'geometry Sphere { <br/>'
+      instructions += '&nbsp; radius 1.0 <br/>'
+      instructions += '&nbsp; } <br/>'
+      instructions += '} <br/>'
+      return instructions
+    }
+    tinymce.init({
       selector:'#tinytextarea',
       plugins: 'customSave vrml',
       toolbar: 'saver loader go shape cone sphere box cylinder Appearance Material',
@@ -75,18 +108,20 @@
         table: {title: 'Table', items: 'inserttable tableprops deletetable | cell row column'},
         tools: false
       },
-      force_br_newlines: true,
-      force_p_newlines: true,
-      remove_linebreaks : false, 
-      setup: function(ed){
-        console.log(ed);
-
-        /*onExecCommand.add(function(ed, cmd, ui, val) {
-            if(cmd == "mceNewDocument") {
-                console.log('hey');
-            }
-        })*/
-      },
+      force_p_newlines : false,
+      force_br_newlines : true,
+      convert_newlines_to_brs : false,
+      remove_linebreaks : true,
+      // init_instance_callback:function(editor){
+      //    editor.setContent("  ");
+      //  },
+      setup: function (editor) {
+              editor.on('init', function () {
+                  let result = mountInstructions()
+                  editor.setContent(result);
+                  tinymce.triggerSave();
+              })
+           },
       forced_root_block: ''
     });
 
