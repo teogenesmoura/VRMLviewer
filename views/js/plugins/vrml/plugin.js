@@ -14,7 +14,7 @@ function isNumeric(n) {
 tinymce.PluginManager.add('vrml', function(editor, url) {
   //Add a button that opens a window
   editor.addButton('go', {
-    text: 'Go!',
+    text: 'Play!',
     icon: false,
     onclick: function() {
       var text = tinyMCE.activeEditor.getContent({format : 'text'});
@@ -35,17 +35,17 @@ tinymce.PluginManager.add('vrml', function(editor, url) {
         onsubmit: function(e) {
 
           send_to_editor = '#VRML V2.0 utf8' + "<br />" + 'Shape {' + "<br />";
-          
+
           if (e.data.appearance == true){
             send_to_editor += '&nbsp; appearance' + "<br />";
-          } 
+          }
 
           if (e.data.geometry == true){
             send_to_editor += '&nbsp; geometry' + "<br />";
           }
 
           send_to_editor += '}';
-          editor.insertContent(send_to_editor); 
+          editor.insertContent(send_to_editor);
         }
       });
     }
@@ -68,20 +68,20 @@ tinymce.PluginManager.add('vrml', function(editor, url) {
 
           send_to_editor = 'Cone {' + "<br />";
 
-          
+
           send_to_editor += '&nbsp;&nbsp; bottomRadius ' + e.data.bottomRadius +  "<br />";
           send_to_editor += '&nbsp;&nbsp; height ' + e.data.height +  "<br />";
-          
+
           if (e.data.side == true){
             send_to_editor += '&nbsp;&nbsp; side' + " TRUE <br />";
-          } 
+          }
 
           if (e.data.bottom == true){
             send_to_editor += '&nbsp;&nbsp; bottom' + " TRUE <br />";
-          } 
+          }
 
           send_to_editor += '&nbsp;}';
-          editor.insertContent(send_to_editor); 
+          editor.insertContent(send_to_editor);
         }
       });
     }
@@ -101,11 +101,11 @@ tinymce.PluginManager.add('vrml', function(editor, url) {
           checkNumberInputs([e.data.radius], e);
 
           send_to_editor = 'Sphere {' + "<br />";
-          
+
           send_to_editor += '&nbsp;&nbsp; radius ' + e.data.radius +  "<br />";
 
           send_to_editor += '&nbsp;}';
-          editor.insertContent(send_to_editor); 
+          editor.insertContent(send_to_editor);
         }
       });
     }
@@ -127,11 +127,11 @@ tinymce.PluginManager.add('vrml', function(editor, url) {
           checkNumberInputs([e.data.width, e.data.height, e.data.depth], e);
 
           send_to_editor = 'Box {' + "<br />";
-          
+
           send_to_editor += '&nbsp;&nbsp; size ' + e.data.width +  " " + e.data.height + " " + e.data.depth;
 
           send_to_editor += '<br />   &nbsp;}';
-          editor.insertContent(send_to_editor); 
+          editor.insertContent(send_to_editor);
         }
       });
     }
@@ -152,13 +152,13 @@ tinymce.PluginManager.add('vrml', function(editor, url) {
           checkNumberInputs([e.data.radius, e.data.height], e);
 
           send_to_editor = 'Cylinder {' + "<br />";
-          
+
           send_to_editor += '&nbsp;&nbsp; radius ' + e.data.radius +  "<br />";
 
           send_to_editor += '&nbsp;&nbsp; height ' + e.data.height +  "<br />";
 
           send_to_editor += '&nbsp;}';
-          editor.insertContent(send_to_editor); 
+          editor.insertContent(send_to_editor);
         }
       });
     }
@@ -177,20 +177,20 @@ tinymce.PluginManager.add('vrml', function(editor, url) {
         onsubmit: function(e) {
 
           send_to_editor = 'Appearance {' + "<br />";
-          
+
           if (e.data.material == true){
             send_to_editor += '&nbsp;&nbsp; material' + "<br />";
-          } 
+          }
 
           if (e.data.texture == true){
             send_to_editor += '&nbsp;&nbsp; texture' + " <br />";
-          } 
+          }
 
           if (e.data.textureTransform == true){
             send_to_editor += '&nbsp;&nbsp; textureTransform' + " <br />";
-          } 
+          }
           send_to_editor += '&nbsp;}';
-          editor.insertContent(send_to_editor); 
+          editor.insertContent(send_to_editor);
         }
       });
     }
@@ -216,10 +216,10 @@ tinymce.PluginManager.add('vrml', function(editor, url) {
           send_to_editor += '&nbsp;&nbsp; diffuseColor ' + e.data.diffuseColor + "<br />";
           send_to_editor += '&nbsp;&nbsp; specularColor ' + e.data.specularColor + " <br />";
           send_to_editor += '&nbsp;&nbsp; emissiveColor ' + e.data.emissiveColor + " <br />";
-          send_to_editor += '&nbsp;&nbsp; shininess ' + e.data.shininess + " <br />";          
+          send_to_editor += '&nbsp;&nbsp; shininess ' + e.data.shininess + " <br />";
           send_to_editor += '&nbsp;&nbsp; transparency ' + e.data.transparency + " <br />";
           send_to_editor += '&nbsp;}';
-          editor.insertContent(send_to_editor); 
+          editor.insertContent(send_to_editor);
         }
       });
     }
@@ -230,7 +230,7 @@ tinymce.PluginManager.add('vrml', function(editor, url) {
       onclick: function() {
         var content = editor.getContent({ format: 'text' });
         changeSceneVRML(String(content).trim());
-        changeSceneVRML(content.trim()); 
+        changeSceneVRML(content.trim());
       }
   });
 });
