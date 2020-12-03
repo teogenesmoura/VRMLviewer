@@ -1,50 +1,13 @@
 # VRML Viewer
 
+## Introduction 
 A Web app that allows users to visualize 3D objects written in the VRML Language. Simply type VRML code on the left, click on "Go!" and see the result on the right side of the screen. App used on the Introduction to Virtual Reality class at the Universidade de Brasília, Brazil. 
+
+## Online demo
 https://vrmlviewer.herokuapp.com/views/
 
 ## Motivation
 Rendering 3D objects is fundamental for learning Virtual Reality nowadays. The current industry-standard language, X3D, is appropriate for building 3D graphics, but when it comes to learning VRML is easier for students without a CS background, which is the case in the Introduction to Virtual Reality class. The softwares that are able to render VRML are dated though, and the one Prof.Dr.Pratini used for the class stopped working with the introduction of Windows 10. Alongside @gbayomi, I built this web app that translates VRML to X3D and renders it into a viewer so that students are able to see what they're creating without worrying about what is happening in the background.
-
-## Demo
-Open up https://vrmlviewer.herokuapp.com/views/ and paste the following code into the text editor:
-```
-#VRML V2.0 utf8
-
-#Example VRML 2.0 file for teaching basic concepts of
-#color and 3D primitive shapes. 
-#Created by Theresa-Marie Rhyne
-
- 	# A Cylinder
-     Shape {
-         appearance Appearance {
-             material Material {
-		diffuseColor 0.75 0.5 1.0
-                specularColor 0.7 0.7 0.8
-                shininess 0.1
-             }
-         }
-         geometry Cylinder {
-             height 0.2
-             radius 3.
-         }
-     }
-	# A Sphere
-    Shape {
-         appearance Appearance {
-             material Material { 
-             diffuseColor 0.2 0.5 0.75
-             transparency 0.0
-	     }
-         }
-    geometry Sphere {
-        radius 1.0
-    }
-}
-```
-and click the "Go!" button. You should see a planet-like 3D form on the viewer :)
-Credits for the VRML example:
-https://www.siggraph.org/special-projects/com97/vrmlexample1.html
 
 ## Getting started
 First, install NPM (instructions at https://www.npmjs.com/get-npm). Then type the following into your terminal in a folder you feel comfortable with:
