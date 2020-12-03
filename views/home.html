@@ -13,7 +13,8 @@
     <link href="css/style.css" rel="stylesheet">
 
     <script type='text/javascript' src='x3dom.js'> </script>
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;400&display=swap" rel="stylesheet">
     <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'> </script>
     <link rel='stylesheet' type='text/css' href='x3dom.css'></link>
 
@@ -25,6 +26,31 @@
 
     <!-- Custom CSS -->
     <link href="css/scrolling-nav.css" rel="stylesheet">
+    <style>
+      .content {
+        margin: 2rem 0 0 0;
+        padding: 1rem;
+      }
+      .title {
+        font-family: 'Josefin Sans', sans-serif;
+        margin: 3rem 0 0 4rem;
+        font-weight: 100;
+      }
+      .footer {
+        font-family: 'Josefin Sans', sans-serif;
+        position: fixed;
+        height: 50px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin-bottom: 0px;
+      }
+      a {
+        text-decoration-style: none;
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: 400;
+      }
+    </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -37,18 +63,24 @@
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
 
 <body>
-
-              <div class="textareaMCE">
-                <textarea id="tinytextarea"></textarea>
-              </div>
-              <div class="x3dSpace">
-                <x3d id="x3dElement">
-                   <scene>
-                   </scene>
-                </x3d>
-              </div>
-
-              <input type="file" id="filePicker" style="display:none">
+  <h2 class="title">
+    VRML Viewer
+  </h2>
+  <div class="content">
+    <div class="textareaMCE">
+      <textarea id="tinytextarea"></textarea>
+    </div>
+    <div class="x3dSpace">
+      <x3d id="x3dElement">
+         <scene>
+         </scene>
+      </x3d>
+    </div>
+  </div>
+  <div class="footer">
+    <p><center>Made with ♥ in Brasília, Brazil by <a href="http://teomoura.com">@teomoura</a> and <a href="http://gbayomi.me/">@gbayomi</a></center></p>
+  </div>
+    <input type="file" id="filePicker" style="display:none">
 
 
     <!-- jQuery -->
